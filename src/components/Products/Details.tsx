@@ -3,12 +3,12 @@ import { Props as ProductProps } from './Product';
 import { fetchProductDetails, fetchProductDetailsAbort } from '../../api/product';
 import './Details.css'
 
-export type Props = ProductProps & { decription: string };
+export type Props = ProductProps & { description: string };
 
 const initialValue: Props = {
   name: '',
   image: '',
-  decription: '',
+  description: '',
   price: 0,
   product_id: -1,
 }
@@ -24,7 +24,8 @@ export default function Detail(props: { id: number }) {
       <h1>{detail.name}</h1>
       <img src={detail.image} alt={detail.name}/>
       <h3>Price: {detail.price}$</h3>
-      <h4>{detail.decription}</h4>
+      <hr/>
+      <h4>{detail.description}</h4>
     </>
   )
 }
