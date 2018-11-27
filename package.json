@@ -5,10 +5,12 @@
   "dependencies": {
     "@types/jest": "23.3.9",
     "@types/node": "10.12.10",
-    "@types/react": "16.7.7",
+    "@types/react": "^16.7.7",
     "@types/react-dom": "16.0.10",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "axios": "^0.18.0",
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "typescript": "3.1.6"
   },
@@ -26,5 +28,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@types/react-router-dom": "^4.3.1"
+  }
 }
