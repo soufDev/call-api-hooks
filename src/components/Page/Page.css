@@ -1,4 +1,16 @@
 #page-content {
-  display: flex;
-  flex-wrap: wrap;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#home {
+    color: white;
+    font-size: 1.2em;
+}
+
+.home-button {
+    background-color: #f44336;
+    padding: 8px;
+    border-radius: 5px;
+    border-color: #f44336;
 }

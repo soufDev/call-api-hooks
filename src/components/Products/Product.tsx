@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface Props {
-  product_id: number;
+  product_id: string;
   price: number
   name: string;
   image: string;

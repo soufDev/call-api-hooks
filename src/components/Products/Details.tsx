@@ -10,10 +10,10 @@ const initialValue: Props = {
   image: '',
   description: '',
   price: 0,
-  product_id: -1,
+  product_id: '',
 }
 
-export default function Detail(props: { id: number }) {
+export default function Detail(props: { id: string }) {
   const [detail, setDetail] = useState<Props>(initialValue);
   useEffect(() => {
     fetchProductDetails(props.id).then(result => setDetail(result))

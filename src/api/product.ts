@@ -15,7 +15,7 @@ export const fetchProductList = (): Promise<ProductProps[]> => {
 
 export const fetchProductListAbort = () => cancel();
 
-export const fetchProductDetails = (id: number): Promise<DetailProps> => {
+export const fetchProductDetails = (id: string): Promise<DetailProps> => {
   return axios.get(`${URL}/${id}/detail`, {
     cancelToken: new CancelToken((cancellation) => cancel = cancellation)
   }).then(result => result.data);

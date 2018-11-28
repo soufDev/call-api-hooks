@@ -41,16 +41,19 @@ function reducer(state: StateReducer, action: ActionReducer) {
   }
 }
 
-
-export default function Pruducts(props: RouteComponentProps) {
+function useProducts() {
   const [products, setProducts] = useState<ProductProps[]>([]);
-  const [state, dispatch] = useReducer<StateReducer, ActionReducer>(reducer, initialState);
   useEffect(() => {
     fetchProductList().then(results => setProducts(results));
     return () => fetchProductListAbort();
   }, []);
+  return products;
+}
 
-  const handleClickProduct = (id: number) => () => {
+export default function Pruducts(props: RouteComponentProps) {
+  const [state, dispatch] = useReducer<StateReducer, ActionReducer>(reducer, initialState);
+  const products = useProducts();
+  const handleClickProduct = (id: string) => () => {
     if (window.innerWidth > 1007) {
       dispatch({ type: 'OPEN_MODAL', content: <Detail id={id}  />})
     } else {
