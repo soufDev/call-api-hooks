@@ -1,4 +1,4 @@
-## Pic Nic Test
+## API Call with hooks
 
 I used hooks to deal with the assignment for more cleaner code and test the hooks as well
 
