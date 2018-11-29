@@ -8,7 +8,7 @@ const Modal = lazy(() => import('./../Modal'));
 const Product = lazy(() => import('./Product'));
 
 interface StateReducer {
-  open?: boolean;
+  open: boolean;
   content?: JSX.Element;
 }
 
@@ -33,8 +33,7 @@ function reducer(state: StateReducer, action: ActionReducer) {
     case 'CLOSE_MODAL':
     return {
         ...state,
-        open: false,
-        content: <></>
+        ...initialState
       }
     default:
       return state;
@@ -44,7 +43,7 @@ function reducer(state: StateReducer, action: ActionReducer) {
 function useProducts() {
   const [products, setProducts] = useState<ProductProps[]>([]);
   useEffect(() => {
-    fetchProductList().then(results => setProducts(results));
+    fetchProductList('/list').then(results => setProducts(results));
     return () => fetchProductListAbort();
   }, []);
   return products;
@@ -77,7 +76,7 @@ export default function Pruducts(props: RouteComponentProps) {
         </>
       )}
       {state.open &&
-        <Modal title='Product Description' open={state.open} content={state.content} onClose={handleClose}/>        
+        <Modal title='Product Description' open={state.open} content={state.content} onClose={handleClose}/>
       }
     </> 
   )

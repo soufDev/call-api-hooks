@@ -7,8 +7,8 @@ const URL = 'https://s3-eu-west-1.amazonaws.com/developer-application-test/cart'
 const { CancelToken } = axios;
 let cancel: Canceler;
 
-export const fetchProductList = (): Promise<ProductProps[]> => {
-  return axios.get(`${URL}/list`, {
+export const fetchProductList = (path: string): Promise<ProductProps[]> => {
+  return axios.get(`${URL}${path}`, {
     cancelToken: new CancelToken((cancellation) => cancel = cancellation)
   }).then(results => results.data.products);
 };

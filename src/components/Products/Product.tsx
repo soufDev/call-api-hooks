@@ -6,6 +6,7 @@ export interface Props {
   name: string;
   image: string;
   onClick?: () => void;
+  description: string;
 }
 export default function Product(props: Props) {
   return (
