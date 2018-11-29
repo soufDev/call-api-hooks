@@ -76,7 +76,9 @@ export default function Pruducts(props: RouteComponentProps) {
           />
         </>
       )}
-      <Modal title='Product Description' open={state.open} content={state.content} onClose={handleClose}/>
+      {state.open &&
+        <Modal title='Product Description' open={state.open} content={state.content} onClose={handleClose}/>        
+      }
     </> 
   )
 }
