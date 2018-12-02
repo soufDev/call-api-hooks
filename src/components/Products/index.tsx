@@ -1,8 +1,9 @@
-import React, { useEffect, useState, useReducer, lazy } from 'react';
+import React, { useEffect, useState, useReducer, lazy, Suspense } from 'react';
 import { Props as ProductProps } from './Product';
 import { fetchProductList, fetchProductListAbort } from '../../api/product';
 import Detail from './Details';
 import { RouteComponentProps } from 'react-router';
+import Loader from '../Loader';
 
 const Modal = lazy(() => import('./../Modal'));
 const Product = lazy(() => import('./Product'));
@@ -65,19 +66,17 @@ export default function Pruducts(props: RouteComponentProps) {
   }
 
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       {products && products.map((product, index) =>
-        <>
-          <Product
-            {...product}
-            key={product.product_id}
-            onClick={handleClickProduct(product.product_id)}
-          />
-        </>
+        <Product
+          {...product}
+          key={index}
+          onClick={handleClickProduct(product.product_id)}
+        />
       )}
       {state.open &&
         <Modal title='Product Description' open={state.open} content={state.content} onClose={handleClose}/>
       }
-    </> 
+    </Suspense> 
   )
 }
